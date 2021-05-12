@@ -7,15 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor
-@Entity
+@NoArgsConstructor // 기본생성자 추가
+@Entity // 테이블과 링크될 클래스 임을 나타냄
 public class Posts {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // 테이블의 PK 필드 나타냄
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 생성규칙, strategy = GenerationType.IDENTITY - auto_increment 속성부여
     private Long id;
 
-    @Column(length = 500, nullable = false)
+    @Column(length = 500, nullable = false) // 컬럼임을 표시, 없어도 자동으로 생성, 추가 옵션 있을시 사용
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
@@ -23,7 +23,7 @@ public class Posts {
 
     private String author;
 
-    @Builder
+    @Builder // 빌더 패턴 클래스 생성
     public Posts(String title, String content, String author) {
         this.title = title;
         this.content = content;

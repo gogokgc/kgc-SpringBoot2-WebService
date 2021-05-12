@@ -20,7 +20,7 @@ public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    @After
+    @After // JUnit 에서 단위 테스트가 끝날때마다 수행되는 메소드지정, 테스트간 데이터 침범 방지를 위해 사용
     public void cleanup(){
         postsRepository.deleteAll();
     }
