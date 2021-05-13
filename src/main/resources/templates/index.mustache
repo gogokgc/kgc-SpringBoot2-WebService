@@ -12,6 +12,16 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+
+            {{#userName}} <!-- 머스테치에서 해당값이 존재 한다면 # 사용, userName 있다면 userName 노출 -->
+                Logged in as: <span id="user">{{userName}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a> <!-- href="/logout" 스프링 시큐리티 기본제공 로그아웃 -->
+            {{/userName}}
+            {{^userName}} <!-- 머스테치에서 해당값이 존재하지 않을경우 ^ 사용, userName 이 없다면 로그인 버튼 노출 -->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a> <!-- href="/oauth2/authorization/google" 스프링 시큐리티 기본제공 로그인 -->
+                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+            {{/userName}}
+
         </div>
     </div>
     <br>
