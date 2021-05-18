@@ -1,6 +1,6 @@
 package com.kgc.book.springboot.domain.posts;
 
-import javafx.geometry.Pos;
+
 import org.junit.After;
 
 import org.junit.Test;
